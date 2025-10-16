@@ -1,14 +1,17 @@
 #include "WorkWithFile.h"
-#include "Text.h"
 #include <iostream>
 #include <fstream>
+
+WorkWithFile::WorkWithFile() :objText("") {}
+
+WorkWithFile::WorkWithFile(string _text) :objText(_text) {}
 
 void WorkWithFile::SaveToFile(const string& filename)
 {
 	ofstream file(filename, ios::trunc);
 	if (file)
 	{
-		file << GetText();
+		file << objText.GetText();
 		file << endl;
 	}
 	file.close();
